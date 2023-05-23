@@ -1,0 +1,5 @@
+up_msgs/PDDLPlanRequest plan_request
+---
+up_msgs/PlanGenerationResult plan_result
+bool success
+string message

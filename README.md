@@ -1,78 +1,33 @@
+![master](https://github.com/aiplan4eu/UP4ROS2/actions/workflows/master.yaml/badge.svg)
+![devel](https://github.com/aiplan4eu/UP4ROS2/actions/workflows/devel.yaml/badge.svg)
+[![codecov](https://codecov.io/github/aiplan4eu/UP4ROS2/branch/master/graph/badge.svg?token=W9RX14LTPS)](https://codecov.io/github/aiplan4eu/UP4ROS2)
+[![Documentation Status](https://readthedocs.org/projects/up4ros2/badge/?version=latest)](https://up4ros2.readthedocs.io/en/latest/)
+
 # UP4ROS2
 
-This repository contains a UP TSB for ROS 2
+This repository contains a ROS 2 wrapper for the AIPlan4EU Unified Planning library available at https://github.com/aiplan4eu/unified-planning.
 
-## Install and building
+## Documentation
 
-```
-$ pip install --pre unified-planning[pyperplan,tamer]
-$ cd <upf_workspace>
-$ cd src
-$ git clone https://github.com/PlanSys2/UPF4ROS2.git
-$ vcs import . < UPF4ROS2/upf.repos
-$ cd ..
-$ colcon build --symlink-install
-```
+The documentation is available [here](https://up4ros2.readthedocs.io/en/latest/)
 
-### Install UPF from sources
-```
-$ cd src
-$ git clone https://github.com/aiplan4eu/unified-planning.git
-$ cd unified-planning
-$ python3 -m pip install -r requirements.txt
-$ python3 -m pip install -r dev-requirements.txt
-$ python3 -m pip install tarski[arithmetic]
-$ sudo apt install -y gringo
-$ python3 -m pip install black==22.6.0
-$ python3 -m black --check --exclude=unified_planning/grpc/generated/ .
-$ python3 -m mypy unified_planning
-$ python3 scripts/test_imports.py
-$ cd ..
-$ git clone -b 869e7ab06cf23c5541a47f46209159fd51d8021f https://github.com/aiplan4eu/up-tamer
-$ python3 -m pip install up-tamer/
-$ git clone -b ac2b04d2d41c20b15f7c4143c19947f9704d1888 https://github.com/aiplan4eu/up-pyperplan
-$ python3 -m pip install up-pyperplan/
-```
+## Quick Overview
 
-Install Java 17, with:
+The **up4ros** node wraps the unified planning library.
+  * It can be launched with: `ros2 launch  up4ros2 up4ros2.launch.py`
 
-```
-$ sudo apt install openjdk-17-jdk openjdk-17-jre
-```
-
-```
-$ git clone https://gitlab.com/enricos83/ENHSP-Public.git
-$ cd ENHSP-Public; git checkout enhsp20-0.9.5; ./compile; cd ..
-$ mkdir .planners; mv ENHSP-Public/enhsp-dist .planners/enhsp-20; rm -rf ENHSP-Public
-```
-
-Check with :
-
-```
-$ cd unified-planning
-$ bash run_tests.sh
-```
-
-
-## Usage
-
-`$ ros2 launch  upf4ros2 upf4ros2.launch.py`
-
-## Nodes
-
-* **upf4ros**
-  * Services:
-    * `/upf4ros2/add_action` `[upf_msgs/srv/AddAction]` 
-    * `/upf4ros2/add_fluent` `[upf_msgs/srv/AddFluent]` 
-    * `/upf4ros2/add_goal` `[upf_msgs/srv/AddGoal]` 
-    * `/upf4ros2/add_object` `[upf_msgs/srv/AddObject]` 
-    * `/upf4ros2/new_problem` [upf_msgs/srv/NewProblem]` 
-    * `/upf4ros2/set_initial_value` [upf_msgs/srv/SetInitialValue]` 
-    * `/upf4ros2/set_problem` [upf_msgs/srv/SetProblem]`
-  * Actions:
-    * `/upf4ros2/planOneShotPDDL` `[upf_msgs/action/PDDLPlanOneShot]` 
-    * `/upf4ros2/planOneShot` `[upf_msgs/action/PlanOneShot]` 
-    * `/upf4ros2/planOneShotRemote` `[upf_msgs/action/PlanOneShotRemote]` 
+  * Exposed services:
+    * `/up4ros2/add_action` `[up_msgs/srv/AddAction]` 
+    * `/up4ros2/add_fluent` `[up_msgs/srv/AddFluent]` 
+    * `/up4ros2/add_goal` `[up_msgs/srv/AddGoal]` 
+    * `/up4ros2/add_object` `[up_msgs/srv/AddObject]` 
+    * `/up4ros2/new_problem` [up_msgs/srv/NewProblem]` 
+    * `/up4ros2/set_initial_value` [up_msgs/srv/SetInitialValue]` 
+    * `/up4ros2/set_problem` [up_msgs/srv/SetProblem]`
+  * Exposed actions:
+    * `/up4ros2/planOneShotPDDL` `[up_msgs/action/PDDLPlanOneShot]` 
+    * `/up4ros2/planOneShot` `[up_msgs/action/PlanOneShot]` 
+    * `/up4ros2/planOneShotRemote` `[up_msgs/action/PlanOneShotRemote]` 
 
 ## Acknowledgments
 

@@ -1,5 +1,0 @@
-string problem_name
-upf_msgs/Action action
----
-bool success
-string message

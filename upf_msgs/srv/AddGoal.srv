@@ -1,6 +1,0 @@
-string problem_name
-upf_msgs/Goal[<=1] goal
-upf_msgs/GoalWithCost[<=1] goal_with_cost
----
-bool success
-string message

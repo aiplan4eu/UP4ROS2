@@ -1,5 +1,0 @@
-upf_msgs/PDDLPlanRequest plan_request
----
-upf_msgs/PlanGenerationResult plan_result
-bool success
-string message
