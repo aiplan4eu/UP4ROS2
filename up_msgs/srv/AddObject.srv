@@ -1,0 +1,5 @@
+string problem_name
+up_msgs/ObjectDeclaration object
+---
+bool success
+string message
