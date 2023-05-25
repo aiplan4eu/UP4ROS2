@@ -14,7 +14,7 @@ The documentation is available [here](https://up4ros2.readthedocs.io/en/latest/)
 ## Quick Overview
 
 The **up4ros** node wraps the unified planning library.
-  * It can be launched with: `ros2 launch  up4ros2 up4ros2.launch.py`
+  * It can be launched with: `ros2 launch up4ros2 up4ros2.launch.py`
 
   * Exposed services:
     * `/up4ros2/add_action` `[up_msgs/srv/AddAction]` 

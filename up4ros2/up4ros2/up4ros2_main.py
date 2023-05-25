@@ -26,7 +26,7 @@ from unified_planning.shortcuts import OneshotPlanner
 from up4ros2.ros2_interface_reader import ROS2InterfaceReader
 from up4ros2.ros2_interface_writer import ROS2InterfaceWriter
 
-from up_msgs.action import PDDLPlanOneShot, PlanOneShot
+from up_msgs.action import PDDLPlanOneShot, PlanOneShot, PlanOneShotRemote
 
 from up_msgs.msg import PDDLPlanRequest
 
@@ -64,6 +64,13 @@ class UP4ROS2Node(Node):
             PlanOneShot,
             "up4ros2/action/planOneShot",
             self.plan_one_shot_callback,
+        )
+
+        self._plan_one_shot_remote_server = ActionServer(
+            self,
+            PlanOneShotRemote,
+            "up4ros2/action/planOneShotRemote",
+            self.plan_one_shot_remote_callback,
         )
 
         self._get_problem = self.create_service(
@@ -293,6 +300,34 @@ class UP4ROS2Node(Node):
             result = PlanOneShot.Result()
             result.success = True
             result.message = ""
+            return result
+
+    def plan_one_shot_remote_callback(self, goal_handle):
+        up_problem = self.problems.get(goal_handle.request.plan_request.problem)
+
+        if up_problem is None:
+            result = PlanOneShotRemote.Result()
+
+            result.success = False
+            result.message = (
+                f"Problem {goal_handle.request.plan_request.problem} does not exist"
+            )
+            goal_handle.succeed()
+            return result
+
+        with OneshotPlanner(problem_kind=up_problem.kind) as planner:
+            result = planner.solve(up_problem)
+            print("%s returned: %s" % (planner.name, result.plan))
+
+            feedback_msg = PlanOneShotRemote.Feedback()
+            feedback_msg.plan_result = self._ros_interface_writer.convert(result)
+
+            goal_handle.publish_feedback(feedback_msg)
+
+            result = PlanOneShotRemote.Result()
+            result.success = True
+            result.message = ""
+            goal_handle.succeed()
             return result
 
 

@@ -24,7 +24,8 @@ jobs:
     container:
       image: ${{ matrix.docker_image }}
     steps:
-
+      - uses: actions/checkout@v2
+  
       - name: setup ROS environment
         uses: ros-tooling/setup-ros@v0.6
         with:
@@ -44,20 +45,18 @@ jobs:
           colcon-defaults: |
             {
               "build": {
-                "mixin": ["coverage-pytest"]
+                "mixin": ["coverage-gcc", "coverage-pytest"]
               },
               "test": {
                 "mixin": ["coverage-pytest"]
               }
             }
-          colcon-mixin-name: coverage-gcc
-          colcon-mixin-repository: https://raw.githubusercontent.com/colcon/colcon-mixin-repository/main/index.yaml
+          colcon-mixin-repository: https://raw.githubusercontent.com/colcon/colcon-mixin-repository/c75e4b34a3959524564afb584e2aa33c7eec323c/index.yaml
 
       - name: Codecov
         uses: codecov/codecov-action@v1.2.1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          file: ros_ws/lcov/total_coverage.info
           flags: unittests
           name: codecov-umbrella
           fail_ci_if_error: false
