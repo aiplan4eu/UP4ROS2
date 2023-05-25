@@ -1,4 +1,4 @@
-Welcome to UP4ROS's documentation!
+Welcome to UP4ROS2's documentation!
 ===================================
 
 **UP4ROS2** is a ROS 2 wrapper for the AIPlan4EU Unified Planning library available 
