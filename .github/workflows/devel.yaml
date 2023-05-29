@@ -25,7 +25,7 @@ jobs:
       image: ${{ matrix.docker_image }}
     steps:
       - uses: actions/checkout@v2
-  
+
       - name: setup ROS environment
         uses: ros-tooling/setup-ros@v0.6
         with:
@@ -38,6 +38,7 @@ jobs:
           sudo pip install unified-planning unified-planning[engines]
 
       - name: build and test
+        id: build-and-test
         uses: ros-tooling/action-ros-ci@v0.3
         with:
           package-name: up4ros2 up_msgs
@@ -45,7 +46,7 @@ jobs:
           colcon-defaults: |
             {
               "build": {
-                "mixin": ["coverage-gcc", "coverage-pytest"]
+                "mixin": ["coverage-pytest"]
               },
               "test": {
                 "mixin": ["coverage-pytest"]
@@ -57,6 +58,7 @@ jobs:
         uses: codecov/codecov-action@v1.2.1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+          files: ros_ws/lcov/total_coverage.info,ros_ws/coveragepy/.coverage
           flags: unittests
           name: codecov-umbrella
           fail_ci_if_error: false

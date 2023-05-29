@@ -1,3 +1,2 @@
 fixes:
-  # For each package in your repo
-  - "ros_ws/src/*/my_repo/my_package/::"
+  - "ros_ws/src/*/UP4ROS2/up4ros2/::"
