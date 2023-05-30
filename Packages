@@ -1,0 +1,52 @@
+Package: ros-rolling-up-msgs-dbgsym
+Package-Type: ddeb
+Architecture: amd64
+Version: 0-2023.05.30.06.58
+Auto-Built-Package: debug-symbols
+Priority: optional
+Section: debug
+Source: ros-rolling-up-msgs
+Maintainer: Francisco Martin Rico <fmrico@gmail.com>
+Installed-Size: 14435
+Depends: ros-rolling-up-msgs (= 0-2023.05.30.06.58)
+Filename: ./ros-rolling-up-msgs-dbgsym_0-2023.05.30.06.58_amd64.ddeb
+Size: 12032878
+MD5sum: b64edb93a496e3f1cfc8192a9e4cc1a2
+SHA1: 314b62f673441a40e7cd2338306a832e9d4eb011
+SHA256: e174b4f4648edc2d7e1991d6e8d69bdd065026ec9dfc44bfec5198b37b3444de
+SHA512: 78685242a1d85efae63406d312f5ced20006a7d2c8c3d8b47061d884dad66d131f0107345665d85c49234ebf82efef18829309c587fbe2e441d109e95e219472
+Description: debug symbols for ros-rolling-up-msgs
+Build-Ids: 11f0cd2fef7eb531b5d0bd5f3a28f4737205ed23 13604c55f6080474d7218e49982eadfaa99d504c 57772265272f240f224f9d9badfe3c26bfa0f0c8 57f979046acd5d21b87e0853bf083cafd33bfa20 69249d851cf681b747d168eaf7fbdf27a6c45ee9 6dd1f3ae121fe8beb1351198c8eca1be764857c6 70ae7e60de60897ec39113aa3f41629708437f6e 7b5cc262abe328b91fe663fefcdfcf875971f7de 9e36e606f2d090540acfada1ec23969631887ab6 ab3aeb9fe3a3bd95c619d61f130c4eed1939be2d f7ad4f95e092bedd0c3d6ad00707264344b85573 fcbceebb643f9df3fe1b849bf783d3d109f19c61
+
+Package: ros-rolling-up-msgs
+Architecture: amd64
+Version: 0-2023.05.30.06.58
+Priority: optional
+Section: misc
+Maintainer: Francisco Martin Rico <fmrico@gmail.com>
+Installed-Size: 13761
+Depends: libc6 (>= 2.14), libgcc-s1 (>= 3.3.1), libpython3.10 (>= 3.10.0), libstdc++6 (>= 11), ros-rolling-fastcdr, ros-rolling-builtin-interfaces, ros-rolling-rosidl-default-generators
+Filename: ./ros-rolling-up-msgs_0-2023.05.30.06.58_amd64.deb
+Size: 903836
+MD5sum: 0b9e1f53e2265f5098a7fef449787942
+SHA1: 3c5171353363d57ded595234cbc1ea0018fcb54d
+SHA256: 2aecd2575e3d6e0d711d931ad37964670c2e0a44831262f7726a0b9253206baa
+SHA512: 2902be1c756d28585a3fc31f1abd80ddf616e5c0453f7d343ffeb7e545c967e0b7a7c3d8f4d155b0e36879b03ed46150102d63e5dfc9e3b353229b0d9dedf7d8
+Description: Messages for the AIPlan4EU Unified Planning
+
+Package: ros-rolling-up4ros2
+Architecture: amd64
+Version: 0-2023.05.30.07.03
+Priority: optional
+Section: misc
+Maintainer: fmrico <fmrico@gmail.com>
+Installed-Size: 185
+Depends: ros-rolling-geometry-msgs, ros-rolling-rclpy, ros-rolling-sensor-msgs, ros-rolling-up-msgs
+Filename: ./ros-rolling-up4ros2_0-2023.05.30.07.03_amd64.deb
+Size: 37784
+MD5sum: 452dd194de0cf72b42d1a32b38b2866e
+SHA1: a6d87a2342e0e356d1898c9015ab3c6db60f4ac2
+SHA256: 09b3c140702b9e29f30b66ad1821cb43da88d464b672bf2400e3edbd149974ed
+SHA512: 282304c209d71598b0346800bfbf6d3b86c42acca58094777f9add8f68466859fd1761872cddaa8d7ae33dfeca434f774d8e8e3c2bbd6f17e9e218554759ee2f
+Description: TODO: Package description
+

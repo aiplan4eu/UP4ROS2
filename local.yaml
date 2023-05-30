@@ -1,0 +1,6 @@
+up_msgs:
+  ubuntu:
+  - ros-rolling-up-msgs
+up4ros2:
+  ubuntu:
+  - ros-rolling-up4ros2
