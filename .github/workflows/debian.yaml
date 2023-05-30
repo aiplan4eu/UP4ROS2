@@ -11,6 +11,6 @@ jobs:
     steps:
       - uses: jspricke/ros-deb-builder-action@main
         with:
-          ROS_DISTRO: humble
+          ROS_DISTRO: rolling
           DEB_DISTRO: jammy
           GITHUB_TOKEN: ${{ secrets.DEBIAN_TOKEN }}
